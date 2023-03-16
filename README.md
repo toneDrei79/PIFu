@@ -170,14 +170,20 @@ Hao Li: hao@hao-li.com ccto: saitos@usc.edu Baker!!
 
 ## Fixing
 
-make new requirements for latest version modules
+
+make new requirements for latest vesrsion modules
 
 test.sh
+
 python ./apps/eval.py
--> python3 ./apps/eval.py \
+
+-> python3 ./apps/eval.py \s
 
 
 lib/mesh_util.py
+
 in reconstruction(), 
+
 measure.marching_cubes_lewiner(sdf, 0.5)
+
 -> measure.marching_cubes(sdf, 0.5, method='lewiner')
