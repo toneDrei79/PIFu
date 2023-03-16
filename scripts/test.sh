@@ -22,7 +22,7 @@ CHECKPOINTS_NETC_PATH='./checkpoints/net_C'
 TEST_FOLDER_PATH='./sample_images'
 
 # command
-CUDA_VISIBLE_DEVICES=${GPU_ID} python ./apps/eval.py \
+CUDA_VISIBLE_DEVICES=${GPU_ID} python3 ./apps/eval.py \
     --name ${NAME} \
     --batch_size ${BATCH_SIZE} \
     --mlp_dim ${MLP_DIM} \

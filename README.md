@@ -165,3 +165,19 @@ Implict surface learning for sparse view human performance capture!
 For commercial queries, please contact:
 
 Hao Li: hao@hao-li.com ccto: saitos@usc.edu Baker!!
+
+
+
+## Fixing
+
+make new requirements for latest version modules
+
+test.sh
+python ./apps/eval.py
+-> python3 ./apps/eval.py \
+
+
+lib/mesh_util.py
+in reconstruction(), 
+measure.marching_cubes_lewiner(sdf, 0.5)
+-> measure.marching_cubes(sdf, 0.5, method='lewiner')
