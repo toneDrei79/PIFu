@@ -47,6 +47,9 @@ def reconstruction(net, cuda, calib_tensor,
         # transform verts into world coordinate system
         verts = np.matmul(mat[:3, :3], verts.T) + mat[:3, 3:4]
         verts = verts.T
+
+        # plot_mesh(verts=verts, faces=faces)
+
         return verts, faces, normals, values
     except:
         print('error cannot marching cubes')
@@ -90,3 +93,29 @@ def save_obj_mesh_with_uv(mesh_path, verts, faces, uvs):
                                               f_plus[2], f_plus[2],
                                               f_plus[1], f_plus[1]))
     file.close()
+
+
+def plot_mesh(verts, faces):
+    # Display resulting triangular mesh using Matplotlib. This can also be done
+    # with mayavi (see skimage.measure.marching_cubes docstring).
+    import matplotlib.pyplot as plt
+    from mpl_toolkits.mplot3d.art3d import Poly3DCollection
+
+    fig = plt.figure(figsize=(10, 10))
+    ax = fig.add_subplot(111, projection='3d')
+
+    # Fancy indexing: `verts[faces]` to generate a collection of triangles
+    mesh = Poly3DCollection(verts[faces])
+    # mesh.set_edgecolor('k')
+    ax.add_collection3d(mesh)
+
+    ax.set_xlabel("x-axis: a = 6 per ellipsoid")
+    ax.set_ylabel("y-axis: b = 10")
+    ax.set_zlabel("z-axis: c = 16")
+
+    ax.set_xlim(-1, 1)  # a = 6 (times two for 2nd ellipsoid)
+    ax.set_ylim(-1, 1)  # b = 10
+    ax.set_zlim(-1, 1)  # c = 16
+
+    plt.tight_layout()
+    plt.show()
