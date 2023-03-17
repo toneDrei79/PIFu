@@ -1,5 +1,7 @@
 checkpoints/*
 results/*
+apps/__pycache__/*
 lib/__pycache__/*
 lib/model/__pycache__/*
+lib/data/__pycache__/*
 requirements_prev.txt
