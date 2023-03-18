@@ -1,5 +1,7 @@
 checkpoints/*
 results/*
+processed_videos/*
+sample_videos/*
 __pycache__/
 *.pyc
 requirements_prev.txt
